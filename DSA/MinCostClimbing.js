@@ -11,4 +11,4 @@ var minCostClimbingStairs = function (cost) {
         second = temp;
     }
     return Math.min(first, second);
-};
+}
