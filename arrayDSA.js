@@ -17,7 +17,7 @@ arr.forEach((i) => {
     // console.log(i)
 })
 
-for(let i of arr){
+for (let i of arr) {
     // console.log(i)
 }
 // console.log(arr)
@@ -54,7 +54,7 @@ console.log(arr)
 const arr2 = [...arr]
 const arr3 = [Array.from(arr)]
 const arr4 = arr.concat()
-console.log(arr2,arr3,arr4)
+console.log(arr2, arr3, arr4)
 
 
 
