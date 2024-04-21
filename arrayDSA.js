@@ -26,7 +26,7 @@ console.log(arr)
 // arr.splice(1,3)
 // console.log(arr)
 
-arr.splice(1,0,6,7,8)
+arr.splice(1, 0, 6, 7, 8)
 console.log(arr)
 
 // arr.splice(1,3,0,9,8)
@@ -79,13 +79,50 @@ const newReduce = arrA.reduce((acc, cul) => acc + cul, 0)
 // console.log(newReduce)
 
 //flat
-const ar = [2,-3,-4,[3,6,7,[3,4,7]]]
+const ar = [2, -3, -4, [3, 6, 7, [3, 4, 7]]]
 const FlatArray = ar.flat(3)//for all depth we can use Infinity.
-console.log(FlatArray)
+// console.log(FlatArray)
 //filter vs find
 //filter find all element that will match its condition but find is work only for first element 
 //if its find the first element with condition and return it not check rest of the array.
-const positiveInt = ar.find((ele)=>ele>0)
-console.log(positiveInt)
+const positiveInt = ar.find((ele) => ele > 0)
+// console.log(positiveInt)
 
+
+//string
+
+const DcHeros = 'Superman'
+//accessing the char in string
+// console.log(DcHeros.charAt(4))
+// console.log(DcHeros[4])
+// console.log(DcHeros.charCodeAt('e'))//aschi value
+// console.log(DcHeros.includes('m'))
+// console.log(DcHeros.indexOf('m'))
+const MarvelHeros = 'Batman'
+// console.log(DcHeros.localeCompare(MarvelHeros))//compare two strings
+//replace
+let dev = 'Nayan is intermediate Frontend Developer . Nayan is also '
+// console.log(dev.replace('Nayan','Linus Trovald'))//it will replace only first occurece
+//for the all occurcence of Nayan change to 
+// console.log(dev.replaceAll('Nayan','Linus Trovald'))
+
+//both are return substring but in slice we can use negative index
+// console.log(dev.substring(5,30))
+// console.log(dev.slice(-29,-2))
+
+//return the array of substring with respect to the condition we apply '' or . or anything
+// console.log(dev.split(' '))
+const substr = dev.split(' ')
+// console.log(substr.join(' '))
+
+
+//convert number to string
+const x = 245;
+console.log(x, x.toString())
+//obj convert
+const obj = {
+    name: 'ali',
+    id: 35
+}
+console.log(JSON.stringify(obj))
 
