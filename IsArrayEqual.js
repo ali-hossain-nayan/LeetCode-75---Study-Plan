@@ -13,5 +13,7 @@ const IsArrayEqual = (arr1, arr2) => {
         }
     }
     return true
+    //sortcut method
+//   return arr1.length === arr2.length && arr1.every((element,index)=>arr1[index]===arr2[index])
 }
 console.log(IsArrayEqual(arr1, arr2))
