@@ -50,14 +50,33 @@ for (let i of arr) {
 // console.log(arr)
 
 //deep copy not changes in main array.different ways we can do it
-console.log(arr)
+// console.log(arr)
 const arr2 = [...arr]
-const arr3 = [Array.from(arr)]
+const arr3 = Array.from(arr)
 const arr4 = arr.concat()
-console.log(arr2, arr3, arr4)
+arr2.splice(1, 3)
+// console.log(arr2, arr3, arr4)
+// console.log(arr)
 
+const arrA = [4, -4, 1, 2, 4, 7, 8]
+//sorting ascending
+const sortArr = arrA.sort()
+// console.log(sortArr)
+//descending
+const desortArr = arrA.sort((a, b) => b - a)
+// console.log(desortArr)
 
+//map return new array
+const newMap = arrA.map((ele, index) => ele * ele)
+// console.log(newMap)
 
+//filter return new array but in codition
+const newFilter = arrA.filter((ele, index) => ele > 0)
+// console.log(newFilter)
+
+//reduce return a number usually sum of array
+const newReduce = arrA.reduce((acc, cul) => acc + cul, 0)
+// console.log(newReduce)
 
 
 
