@@ -126,3 +126,7 @@ const obj = {
 }
 console.log(JSON.stringify(obj))
 
+function abc (){
+    console.log()
+}
+
