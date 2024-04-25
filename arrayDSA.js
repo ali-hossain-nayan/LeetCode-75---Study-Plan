@@ -20,14 +20,16 @@ arr.forEach((i) => {
 for (let i of arr) {
     // console.log(i)
 }
-console.log(arr)
+// console.log(arr)
 //delete,add,update element using splice
 
 // arr.splice(1,3)
 // console.log(arr)
 
-arr.splice(1, 0, 6, 7, 8)
-console.log(arr)
+
+
+// arr.splice(1, 0, 6, 7, 8)
+// console.log(arr)
 
 // arr.splice(1,3,0,9,8)
 // console.log(arr)
@@ -54,8 +56,8 @@ console.log(arr)
 const arr2 = [...arr]
 const arr3 = Array.from(arr)
 const arr4 = arr.concat()
-arr2.splice(1, 3)
-// console.log(arr2, arr3, arr4)
+arr3.splice(1, 3)
+// console.log(arr3)
 // console.log(arr)
 
 const arrA = [4, -4, 1, 2, 4, 7, 8]
@@ -118,15 +120,95 @@ const substr = dev.split(' ')
 
 //convert number to string
 const x = 245;
-console.log(x, x.toString())
+// console.log(x, x.toString())
+let y = x.toString()
+// console.log(y)
+// console.log(typeof(y))
 //obj convert
 const obj = {
     name: 'ali',
     id: 35
 }
-console.log(JSON.stringify(obj))
+// console.log(JSON.stringify(obj))
 
-function abc (){
-    console.log()
+function abc() {
+    // console.log()
 }
+
+
+
+
+//Recurssion
+const fun = (n) => {
+    console.log('fun', n)//maximum called is exceeded bcz the function run and run over again bcz of its called inside the function itself
+    fun(n - 1)
+}
+// fun(10)
+
+//solve with base case
+const fun2 = (n) => {
+    if (n === 0) {//if n reach 0 with return the function and that will solve our problem
+        return;
+    }
+    console.log('fun2', n)
+    fun2(n - 1)
+}
+// fun2(10)
+
+
+//Factorial
+const factorial = (n) => {
+    if (n === 0) {
+        return 1;
+    }
+    return n * factorial(n - 1);
+}
+// console.log(factorial(4))
+
+//sum of array:given a array return its element sums
+const sumOfArray = (arr) => {
+    if (arr.length === 0) {
+        return 0
+    }
+    return arr[(arr.length - 1)] + sumOfArray(arr.slice(0, arr.length - 1))
+}
+// console.log(sumOfArray([1, 2, 3, 4, 5]))
+
+
+
+//another approach
+const sumArray = (arr) => {
+    if (arr.length === 0) {
+        return 0
+    }
+    let lastElement = arr.pop()
+    return lastElement + sumArray(arr)
+}
+// console.log(sumArray([1, 2, 3, 4, 5]))
+//another
+const SumArray = (arr, n) => {
+    if (n === 0) return 0
+    return arr[n - 1] + SumArray(arr, n - 1)
+}
+// console.log(SumArray([1, 2, 3, 4, 5], 5))
+
+
+//Product of array elements
+const ProductArray = (arr) => {
+    if (arr.length === 0) return 0;
+    if (arr.length === 1) return 1
+    return arr[(arr.length - 1)] * ProductArray(arr.slice(0, arr.length - 1))
+}
+// console.log(ProductArray([1, 2, 3, 4, 5]))
+// another
+const proArr = (arr, n) => {
+    if (n === 0) return 0;
+    if (n === 1) return 1;
+    let lastElement = arr.pop()
+    return lastElement * proArr(arr, n - 1)
+}
+console.log(proArr([1, 2, 3, 4, 5], 5))
+
+
+
 

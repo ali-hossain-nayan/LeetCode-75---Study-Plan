@@ -15,7 +15,7 @@ var isAnagram = function (s, t) {
     //     if(s[i]!==t[j]){
     //         return false
     //     }
-    //    }
+    //    } 
     // }
     return sortT.includes(sortS)
 };
