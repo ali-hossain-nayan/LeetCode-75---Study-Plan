@@ -25,3 +25,59 @@ var strStr = function (haystack, needle) {
     }
     return -1;
 };
+
+
+
+
+
+
+
+
+const FindIndex = (mainstring, substring) => {
+    let m = mainstring.length
+    let n = substring.length
+    let limit = m - n;
+    for (let i = 0; i <= limit; i++) {
+        let flag = true;
+        if (mainstring[i] === substring[0]) {
+
+            for (let j = 0; j < n; j++) {
+                if (mainstring[i + j] !== substring[j]) {
+                    flag = false
+                    break;
+                }
+            }
+            if (flag) {
+                return i
+            }
+        }
+    }
+    return -1
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
