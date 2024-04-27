@@ -274,3 +274,34 @@ const BinaryRecurUtility = (arr, target, left, right) => {
 // console.log(BinaryRecursion([1, 2, 3, 4, 5, 6, 7, 9], 9))
 
 
+//floor -> greatest integers of smaller than x   9-8
+//ceil->smallest integers of greater than x  9-10
+const CeilFloor = (arr1, target) => {
+    let left = 0, right = arr1.length - 1;
+    let ceilValue = -1, floorValue = -1;
+
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2)
+        if (arr1[mid] === target) {
+            ceilValue = mid;
+            floorValue = mid
+            return [ceilValue, floorValue]
+        }
+        else if (arr1[mid] > target) {
+            ceilValue = mid
+            right = mid - 1
+        }
+        else {
+            floorValue = mid
+            left = mid + 1
+        }
+    }
+    return [ceilValue, floorValue]
+}
+
+// const arr1 = [1, 2, 4, 5, 7, 8, 10];
+// const target = 6;
+// console.log(CeilFloor(arr, target));
+
+
+
