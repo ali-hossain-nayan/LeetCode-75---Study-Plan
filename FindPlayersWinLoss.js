@@ -19,3 +19,27 @@ var findWinners = function (matches) {
 
     return [undefeated, lostOneMatch];
 };
+
+
+
+
+
+//practice
+const IdentifyWinnerLosser = (matches) => {
+    let winner = {}, losser = {}
+    matches.forEach((match) => {
+        let [win, loss] = match;
+        winner[win] = (winner[win] || 0) + 1;
+        losser[loss] = (losser[loss] || 0) + 1;
+
+
+
+    })
+    let wins = Object.keys(winner).filter((player) => winner[player] > 0 && !(player in losser))
+    let losses = Object.keys(losser).filter((player) => losser[player] === 1)
+
+    wins.sort((a, b) => a - b)
+    losses.sort((x, y) => x - y)
+
+    return [wins, losses]
+}
