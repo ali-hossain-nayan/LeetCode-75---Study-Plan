@@ -304,4 +304,161 @@ const CeilFloor = (arr1, target) => {
 // console.log(CeilFloor(arr, target));
 
 
+//object 
+const person = {
+    name: 'ali',
+    'last name': 'nayan',//property
+    isPopular: true,
+    lead: {
+        lead: 'frontend developer'
+    },
+    walk: () => {
+        return 'start walking'//method
+    },
+    run: function () {
+        return 'start running'
+    },
+    arr: [1, 2, 3, 5, 7]
+}
+//In object every key must be string but value can be any datatype
+// console.log(person['last name'])
+
+// console.log(person.hasOwnProperty('isPopular'))//check the key is present
+// console.log(person.walk())
+//update value
+person.name = 'Hossain'
+// console.log(person.name)
+//add
+person.location = 'dhaka'
+// console.log(person.location)
+
+//delete
+delete person.location
+// console.log(person)
+
+
+//shallow copy changes main object property
+const person2 = person;
+person2["last name"] = 'Max'
+// console.log(person)
+// console.log(person2)
+
+// deep copy not changes the original object it create new object memeory
+const person3 = Object.assign({}, person)//first { } is the new object that i will create second one is target where i get the data
+person3['last name'] = 'Jeri'
+// console.log(person)
+// console.log(person3)
+// console.log(Object.isFrozen(person))
+
+//difference between freeze and seal method
+//after freeze you cant add,delete,update any key values but in seal you can only update the key values
+// Object.freeze(person)
+person.isPopular = 'false'
+delete person.name
+// console.log(person)
+
+//seal
+Object.seal(person)
+// console.log(Object.isSealed(person))
+
+person.isPopular = false
+// console.log(person)
+
+//  console.log (Object.keys(person))
+//  console.log (Object.values(person))
+//  console.log (Object.entries(person))
+
+
+//loop in objects
+for (let key in person) {
+    // console.log(key)
+}
+
+
+for (let key in person) {
+    // console.log(person[key])
+}
+for (let key in person) {
+    // console.log(key + ':',person[key])
+}
+
+Object.keys(person).forEach((key) => console.log(key))
+
+
+
+
+//compare object
+// console.log(Object.is(person,person2))
+
+// let flag = false;
+for (let key in person) {
+    if (person[key] === person3[key]) {
+        // console.log('they are same')
+    } else {
+        // console.log('they are not same')
+    }
+}
+// if(flag!==true){
+//     console.log('they are not same')
+// }
+
+
+//find count all the players
+const data = {
+    id: 1,
+    name: ["P1", "P4"],
+    next: {
+        id: 2,
+        name: ["P3"],
+        next: {
+            id: 3,
+            name: ["P3", "P4", "P5"],
+            next: {
+                id: 4,
+                name: ["P1", "P2", "P4"],
+                next: {
+                    id: 5,
+                    name: ["P2", "P3", "P5"],
+                    next: null
+                }
+            }
+        }
+    }
+};
+
+const dataRecursion = (data) => {
+    if (data === null) return {}
+    let count = {}
+    for (let i of data.name) {
+        count[i] = (count[i] || 0) + 1;
+    }
+
+    let nextCount = dataRecursion(data.next)
+
+    for (let i in nextCount) {
+        count = (count[i] || 0) + nextCount[i]
+    }
+    return count;
+}
+
+
+
+const CountPlayer = (data) => {
+    if (data === null) return {}
+
+
+    let count = {}
+    for (let player of data.name) {
+        count[player] = (count[player] || 0) + 1;
+    }
+    let nextCountPlayer = CountPlayer(data.next)
+
+    for (let key in nextCountPlayer) {
+        count[key] = (count[key] || 0) + nextCountPlayer[key];
+    }
+    return count;
+}
+console.log(CountPlayer(data))// {p1: 2, p4: 3, p3: 3, p2: 2: p5: 2}
+
+
 
