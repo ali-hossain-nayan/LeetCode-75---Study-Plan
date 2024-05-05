@@ -461,4 +461,33 @@ const CountPlayer = (data) => {
 console.log(CountPlayer(data))// {p1: 2, p4: 3, p3: 3, p2: 2: p5: 2}
 
 
+//sorting
+const arrSort = [1, -2, 66, -9, 777]
+// console.log(arrSort.sort())
+console.log(arrSort.sort((a, b) => a - b))//asscending
+console.log(arrSort.sort((a, b) => b - a))//descending
+
+//string sort
+const strSort = 'Bateman'
+// console.log(sort(strSort())//not working
+// console.log(strSort.split('').sort().join(''))//Its right
+
+//Bubble sort always compare adjacent element of an array
+const BubbleSort = (arrSort) => {
+    let swap
+    do {
+        swap = false;
+        for (let i = 0; i < arrSort.length - 1; i++) {
+            if (arrSort[i] > arrSort[i + 1]) {
+                let temp = arrSort[i];
+                arrSort[i] = arrSort[i + 1];
+                arrSort[i + 1] = temp;
+
+                [arrSort[i], arrSort[i + 1] = arrSort[i + 1], arrSort[i]]
+            }
+        }
+    } while (swap);
+    return arrSort;
+}
+console.log(BubbleSort(arrSort))
 
