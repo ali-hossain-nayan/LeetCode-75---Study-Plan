@@ -463,18 +463,20 @@ console.log(CountPlayer(data))// {p1: 2, p4: 3, p3: 3, p2: 2: p5: 2}
 
 //sorting
 const arrSort = [1, -2, 66, -9, 777]
+// console.log(arrSort.length)
 // console.log(arrSort.sort())
-console.log(arrSort.sort((a, b) => a - b))//asscending
-console.log(arrSort.sort((a, b) => b - a))//descending
+// console.log(arrSort.sort((a, b) => a - b))//asscending
+// console.log(arrSort.sort((a, b) => b - a))//descending
 
 //string sort
 const strSort = 'Bateman'
 // console.log(sort(strSort())//not working
 // console.log(strSort.split('').sort().join(''))//Its right
+// -2,1,
 
 //Bubble sort always compare adjacent element of an array
 const BubbleSort = (arrSort) => {
-    let swap
+    let swap = true
     do {
         swap = false;
         for (let i = 0; i < arrSort.length - 1; i++) {
@@ -482,12 +484,30 @@ const BubbleSort = (arrSort) => {
                 let temp = arrSort[i];
                 arrSort[i] = arrSort[i + 1];
                 arrSort[i + 1] = temp;
+                swap = true;
 
-                [arrSort[i], arrSort[i + 1] = arrSort[i + 1], arrSort[i]]
+                // [arrSort[i], arrSort[i + 1] = arrSort[i + 1], arrSort[i]]
             }
         }
     } while (swap);
     return arrSort;
 }
-console.log(BubbleSort(arrSort))
+// console.log(BubbleSort(arrSort))
+
+//Selection Sort
+
+const SelectionSort = (arrSort) => {
+    for (let i = 0; i < arrSort.length - 1; i++) {
+        let minIndex = i;
+        for (let j = i + 1; j < arrSort.lenght; j++) {
+            if (arrSort[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+        }
+        if (minIndex !== i) {
+            [arrSort[minIndex], arrSort[i] = arrSort[i], arrSort[minIndex]]
+        }
+    }
+    return arrSort;
+}
 
