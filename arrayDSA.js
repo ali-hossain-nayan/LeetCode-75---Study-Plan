@@ -129,7 +129,7 @@ const obj = {
     name: 'ali',
     id: 35
 }
-// console.log(JSON.stringify(obj))
+console.log(JSON.stringify(obj))
 
 function abc() {
     // console.log()
@@ -173,6 +173,7 @@ const sumOfArray = (arr) => {
     return arr[(arr.length - 1)] + sumOfArray(arr.slice(0, arr.length - 1))
 }
 // console.log(sumOfArray([1, 2, 3, 4, 5]))
+
 
 
 
@@ -376,7 +377,7 @@ for (let key in person) {
 
 
 for (let key in person) {
-    // console.log(person[key])
+    console.log(person[key])
 }
 for (let key in person) {
     // console.log(key + ':',person[key])
@@ -458,11 +459,15 @@ const CountPlayer = (data) => {
     }
     return count;
 }
-console.log(CountPlayer(data))// {p1: 2, p4: 3, p3: 3, p2: 2: p5: 2}
+// console.log(CountPlayer(data))// {p1: 2, p4: 3, p3: 3, p2: 2: p5: 2}
 
 
 //sorting
 const arrSort = [1, -2, 66, -9, 777]
+// -2,1,66,-9,777
+// -2,1,66,-9,777
+// -2,1,-9,66,777
+
 // console.log(arrSort.length)
 // console.log(arrSort.sort())
 // console.log(arrSort.sort((a, b) => a - b))//asscending
@@ -510,4 +515,22 @@ const SelectionSort = (arrSort) => {
     }
     return arrSort;
 }
+
+
+
+//Inserttion sort 
+const InserttionSort = (arrSort) => {
+    for (let i = 1; i < arrSort.length; i++) {
+        for (let j = i; j > 0; j--) {
+            if (arrSort[j] < arrSort[j - 1]) {
+                [arrSort[j], arrSort[j - 1]] = [arrSort[j - 1], arrSort[j]]
+            } else {
+                break;
+            }
+        }
+    }
+
+    return arrSort;
+}
+console.log(InserttionSort(arrSort))
 
