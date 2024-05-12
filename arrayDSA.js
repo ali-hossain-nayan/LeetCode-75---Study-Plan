@@ -534,3 +534,17 @@ const InserttionSort = (arrSort) => {
 }
 console.log(InserttionSort(arrSort))
 
+//another approach
+const Inserttion = (arrSort) => {
+    for (let i = 1; i < arrSort.length; i++) {
+        let current = arrSort[i]
+        let j = i - 1;
+        while (j >= 0 && arrSort[j] > current) {
+            arrSort[j + 1] = arrSort[j]
+            j--
+        }
+        arrSort[j + 1] = current
+    }
+    return arrSort
+}
+
