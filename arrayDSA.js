@@ -532,7 +532,8 @@ const InserttionSort = (arrSort) => {
 
     return arrSort;
 }
-console.log(InserttionSort(arrSort))
+// console.log(InserttionSort(arrSort))
+
 
 //another approach
 const Inserttion = (arrSort) => {
@@ -548,3 +549,44 @@ const Inserttion = (arrSort) => {
     return arrSort
 }
 
+
+
+
+//merge sort using recursion
+const MergeSort = (arrSort) => {
+    if (arrSort.length < 2) {
+        return arrSort;
+    }
+    //divide the array
+    let mid = Math.floor(arrSort.length / 2)
+    let left = MergeSort(arrSort.slice(0, mid))
+    let right = MergeSort(arrSort.slice(mid))
+    return Merge(left, right);
+}
+
+const Merge = (left, right) => {
+    let Sorted = []
+    let leftIndex = 0, rightIndex = 0;
+    while (leftIndex < left.length && rightIndex < right.length) {
+        if (left[leftIndex] < right[rightIndex]) {
+            Sorted.push(left[leftIndex])
+            leftIndex++
+        } else {
+            Sorted.push(right[rightIndex])
+            rightIndex++
+        }
+    }
+    //if left array left then push it in last
+    while (leftIndex < left.length) {
+        Sorted.push(left[leftIndex])
+        leftIndex++
+    }
+    //if right array right then push it in last
+
+    while (rightIndex < right.length) {
+        Sorted.push(right[rightIndex])
+        rightIndex++
+    }
+    return Sorted;
+}
+console.log(MergeSort(arrSort))
