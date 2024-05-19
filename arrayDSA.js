@@ -129,6 +129,7 @@ const obj = {
     name: 'ali',
     id: 35
 }
+console.log(obj)
 console.log(JSON.stringify(obj))
 
 function abc() {
@@ -589,4 +590,30 @@ const Merge = (left, right) => {
     }
     return Sorted;
 }
-console.log(MergeSort(arrSort))
+// console.log(MergeSort(arrSort))
+
+
+
+
+//Quick Sort-> its choose the pivot(random delect index) element then take all the smaller number than itself will be in left and 
+// grater element will be in right side TC(nlogn)
+
+const QuckSort = (arrSort) => {
+    let pivotIndex = Math.floor(Math.random() * arrSort.length);
+    let left = [], right = []
+    if (arrSort.length < 2) {
+        return arrSort;
+    }
+    for (let i = 0; i < arrSort.length; i++) {
+        if (i === pivotIndex) {
+            continue;
+        }
+        if (arrSort[pivotIndex] < arrSort[i]) {
+            right.push(arrSort[i])
+        } else {
+            left.push(arrSort[i])
+        }
+    }
+    return [...QuckSort(left), arrSort[pivotIndex], ...QuckSort(right)]
+}
+console.log(QuckSort(arrSort))
